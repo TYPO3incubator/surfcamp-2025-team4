@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ffcd25ce8392371b25789f790af3b99f",
+    "content-hash": "867cd3f5896b57fb2f83428978df3314",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5335,6 +5335,46 @@
             }
         },
         {
+            "name": "typo3-incubator/surfey",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/surfey",
+                "reference": "32c208b2bfcd0dd0cc1102162b22a1ec961f6817"
+            },
+            "require": {
+                "typo3/cms-backend": "^13.4",
+                "typo3/cms-core": "^13.4",
+                "typo3/cms-frontend": "^13.4"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "surfey"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TYPO3Incubator\\Surfey\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "TYPO3 Surfcamp Team 4",
+                    "email": "typo3cms@typo3.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Create, manage, and analyze surveys with ease in TYPO3.",
+            "homepage": "https://typo3.org",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "typo3-incubator/theme-fcbigfoot",
             "version": "0.0.1",
             "source": {
@@ -7391,7 +7431,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "typo3-incubator/surfcamp-base": 20
+        "typo3-incubator/surfcamp-base": 20,
+        "typo3-incubator/surfey": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

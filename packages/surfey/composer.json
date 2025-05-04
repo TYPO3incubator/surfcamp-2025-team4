@@ -1,0 +1,27 @@
+{
+    "name": "typo3-incubator/surfey",
+    "type": "typo3-cms-extension",
+	"description": "Create, manage, and analyze surveys with ease in TYPO3.",
+    "homepage": "https://typo3.org",
+    "license": ["GPL-2.0-or-later"],
+    "authors": [{
+        "name": "TYPO3 Surfcamp Team 4",
+        "email": "typo3cms@typo3.org",
+        "role": "Developer"
+    }],
+	"require": {
+		"typo3/cms-core": "^13.4",
+		"typo3/cms-backend": "^13.4",
+		"typo3/cms-frontend": "^13.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"TYPO3Incubator\\Surfey\\": "Classes/"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "surfey"
+		}
+	}
+}
