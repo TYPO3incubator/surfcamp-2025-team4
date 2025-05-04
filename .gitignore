@@ -11,3 +11,4 @@
 .history
 /node_modules/*
 .ddev/config.custom.yaml
+.ddev/docker-compose.custom.yaml

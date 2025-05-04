@@ -2,3 +2,4 @@ services:
   web:
     environment:
       - TYPO3_CONTEXT=Development
+      - IS_DDEV_PROJECT=true
