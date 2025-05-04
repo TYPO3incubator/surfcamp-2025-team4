@@ -10,3 +10,4 @@
 .DS_Store
 .history
 /node_modules/*
+.ddev/config.custom.yaml
