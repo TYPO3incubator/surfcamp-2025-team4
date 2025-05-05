@@ -7,7 +7,6 @@ return [
         'descriptionColumn' => 'description',
         'crdate' => 'crdate',
         'tstamp' => 'tstamp',
-        'sortby' => 'sorting',
         'versioningWS' => true,
         'groupName' => 'content',
         'editlock' => 'editlock',
@@ -46,7 +45,7 @@ return [
             'showitem' => 'starttime, endtime, --linebreak--, fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel, --linebreak--,editlock'
         ],
         'language' => ['showitem' => 'sys_language_uid, l10n_parent'],
-        'private' => ['showitem' => 'private_survey, single_submission'],
+        'private' => ['showitem' => 'private_surfey, single_submission'],
     ],
     'columns' => [
         'title' => [
@@ -75,9 +74,9 @@ return [
                 'default' => 0,
             ]
         ],
-        'private_survey' => [
-            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.private_survey.label',
-            'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.private_survey.description',
+        'private_surfey' => [
+            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.private_surfey.label',
+            'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.private_surfey.description',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -87,7 +86,7 @@ return [
         'single_submission' => [
             'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.single_submission.label',
             'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.single_submission.description',
-            'displayCond' => 'FIELD:private_survey:!=:0',
+            'displayCond' => 'FIELD:private_surfey:!=:0',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',

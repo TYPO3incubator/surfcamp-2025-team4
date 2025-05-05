@@ -18,11 +18,11 @@
             <trans-unit id="tx_survey_definition.columns.random_order.description">
                 <source>If enabled, the questions will be in random order.</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.private_survey.label">
-                <source>Private Survey</source>
+            <trans-unit id="tx_survey_definition.columns.private_surfey.label">
+                <source>Private Surfey</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.private_survey.description">
-                <source>If enabled, this survey will only be accessible by an invite link.</source>
+            <trans-unit id="tx_survey_definition.columns.private_surfey.description">
+                <source>If enabled, this surfey will only be accessible by an invite link.</source>
             </trans-unit>
             <trans-unit id="tx_survey_definition.columns.single_submission.label">
                 <source>Single Submission</source>
@@ -47,6 +47,10 @@
             </trans-unit>
             <trans-unit id="tx_surfey_submission.columns.data.label">
                 <source>Data</source>
+            </trans-unit>
+
+            <trans-unit id="element.surfeyEditor.button.label">
+                <source>Surfey Editor</source>
             </trans-unit>
         </body>
     </file>

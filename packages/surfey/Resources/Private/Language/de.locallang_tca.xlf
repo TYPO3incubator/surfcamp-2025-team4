@@ -23,11 +23,11 @@
                 <source>If enabled, the questions will be in random order.</source>
                 <target>Wenn aktiviert werden die Fragen in zufälliger Reihenfolge angezeigt.</target>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.private_survey.label">
-                <source>Private Survey</source>
-                <target>Privater Survey</target>
+            <trans-unit id="tx_survey_definition.columns.private_surfey.label">
+                <source>Private Surfey</source>
+                <target>Privater Surfey</target>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.private_survey.description">
+            <trans-unit id="tx_survey_definition.columns.private_surfey.description">
                 <source>If enabled, this survey will only be accessible by an invite link.</source>
                 <target>Wenn aktiviert ist dieser Survey nur über einen Einladungslink zugänglich.</target>
             </trans-unit>
@@ -62,6 +62,11 @@
             <trans-unit id="tx_surfey_submission.columns.data.label">
                 <source>Data</source>
                 <target>Daten</target>
+            </trans-unit>
+
+            <trans-unit id="element.surfeyEditor.button.label">
+                <source>Surfey Editor</source>
+                <target>Surfey Editor</target>
             </trans-unit>
         </body>
     </file>
