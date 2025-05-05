@@ -47,6 +47,22 @@
                 <source>If enabled, notifications / E-Mails  will be sent when new responses are received.</source>
                 <target>Wenn aktiviert werden Benachrichtigungen / E-Mails gesendet, wenn neue Antworten eingehen.</target>
             </trans-unit>
+            <trans-unit id="tx_surfey_submission.title">
+                <source>Surfey Submission</source>
+                <target>Surfey Abgabe</target>
+            </trans-unit>
+            <trans-unit id="tx_surfey_submission.columns.surfey.label">
+                <source>Surfey</source>
+                <target>Surfey</target>
+            </trans-unit>
+            <trans-unit id="tx_surfey_submission.columns.hash.label">
+                <source>Hash</source>
+                <target>Hash</target>
+            </trans-unit>
+            <trans-unit id="tx_surfey_submission.columns.data.label">
+                <source>Data</source>
+                <target>Daten</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

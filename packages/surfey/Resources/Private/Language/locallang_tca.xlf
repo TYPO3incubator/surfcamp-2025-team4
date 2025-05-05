@@ -36,6 +36,18 @@
             <trans-unit id="tx_survey_definition.columns.notifications.description">
                 <source>If enabled, notifications / E-Mails  will be sent when new responses are received.</source>
             </trans-unit>
+            <trans-unit id="tx_surfey_submission.title">
+                <source>Surfey Submission</source>
+            </trans-unit>
+            <trans-unit id="tx_surfey_submission.columns.surfey.label">
+                <source>Surfey</source>
+            </trans-unit>
+            <trans-unit id="tx_surfey_submission.columns.hash.label">
+                <source>Hash</source>
+            </trans-unit>
+            <trans-unit id="tx_surfey_submission.columns.data.label">
+                <source>Data</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
