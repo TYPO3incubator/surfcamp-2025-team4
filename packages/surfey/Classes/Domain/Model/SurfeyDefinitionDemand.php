@@ -33,7 +33,8 @@ class SurfeyDefinitionDemand
         protected string $orderField = self::DEFAULT_ORDER_FIELD,
         protected string $orderDirection = self::ORDER_ASCENDING,
         protected string $title = '',
-        protected ?bool $privateSurfey = null
+        protected ?bool $privateSurfey = null,
+        protected ?int $pid = null,
     ) {
         if (!in_array($orderField, self::ORDER_FIELDS, true)) {
             $orderField = self::DEFAULT_ORDER_FIELD;
@@ -50,13 +51,20 @@ class SurfeyDefinitionDemand
         $page = (int)($request->getQueryParams()['page'] ?? $request->getParsedBody()['page'] ?? 1);
         $orderField = (string)($request->getQueryParams()['orderField'] ?? $request->getParsedBody()['orderField'] ?? self::DEFAULT_ORDER_FIELD);
         $orderDirection = (string)($request->getQueryParams()['orderDirection'] ?? $request->getParsedBody()['orderDirection'] ?? self::ORDER_ASCENDING);
+        $pid = isset($request->getQueryParams()['id']) ? (int)$request->getQueryParams()['id'] : null;
         $demand = $request->getQueryParams()['demand'] ?? $request->getParsedBody()['demand'] ?? [];
+
         if (!is_array($demand) || $demand === []) {
-            return new self($page, $orderField, $orderDirection);
+            return new self(
+                page: $page,
+                orderField: $orderField,
+                orderDirection: $orderDirection,
+                pid: $pid,
+            );
         }
         $title = (string)($demand['title'] ?? '');
         $privateSurfey = isset($demand['private_surfey']) ? (bool)$demand['private_surfey'] : null;
-        return new self($page, $orderField, $orderDirection, $title, $privateSurfey);
+        return new self($page, $orderField, $orderDirection, $title, $privateSurfey, $pid);
     }
 
     public function getOrderField(): string
@@ -97,6 +105,16 @@ class SurfeyDefinitionDemand
     public function hasPrivateSurfey(): bool
     {
         return $this->privateSurfey !== null;
+    }
+
+    public function getPid(): ?int
+    {
+        return $this->pid;
+    }
+
+    public function hasPid(): bool
+    {
+        return $this->pid !== null;
     }
 
     public function hasConstraints(): bool

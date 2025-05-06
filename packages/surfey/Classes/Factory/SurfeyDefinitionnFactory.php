@@ -29,15 +29,15 @@ final readonly class SurfeyDefinitionnFactory
 
     public function createFromRow(array $row): SurfeyDefinition
     {
-        $resolvedRecord = $this->recordFactory->createResolvedRecordFromDatabaseRow('tx_surfey_submission', $row);
+        $resolvedRecord = $this->recordFactory->createResolvedRecordFromDatabaseRow('tx_surfey_definition', $row);
 
         return new SurfeyDefinition(
             $resolvedRecord->get('title'),
-            $resolvedRecord->get('definition'),
-            $resolvedRecord->get('random_order'),
-            $resolvedRecord->get('private_surfey'),
-            $resolvedRecord->get('single_submission'),
-            $resolvedRecord->get('notifications'),
+            [], // @todo fix this
+            (bool)$resolvedRecord->get('random_order'),
+            (bool)$resolvedRecord->get('private_surfey'),
+            (bool)$resolvedRecord->get('single_submission'),
+            (bool)$resolvedRecord->get('notifications'),
         );
     }
 }
