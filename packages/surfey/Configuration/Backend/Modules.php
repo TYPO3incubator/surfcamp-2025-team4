@@ -11,7 +11,7 @@ return [
         'parent' => 'web',
         'access' => 'user',
         'path' => '/module/web/surfey',
-        'iconIdentifier' => 'module-surfey',
+        'iconIdentifier' => 'tx-surfey',
         'labels' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_module_surfey.xlf',
         'routes' => [
             '_default' => [
