@@ -2,7 +2,7 @@
 
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.title',
+        'title' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.title',
         'label' => 'title',
         'descriptionColumn' => 'description',
         'crdate' => 'crdate',
@@ -49,7 +49,7 @@ return [
     ],
     'columns' => [
         'title' => [
-            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.title.label',
+            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.columns.title.label',
             'config' => [
                 'type' => 'input',
                 'required' => true,
@@ -57,7 +57,7 @@ return [
             ],
         ],
         'definition' => [
-            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.definition.label',
+            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.columns.definition.label',
             'config' => [
                 'type' => 'json',
                 'renderType' => 'surfeyEditor',
@@ -66,8 +66,8 @@ return [
             ],
         ],
         'random_order' => [
-            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.random_order.label',
-            'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.random_order.description',
+            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.columns.random_order.label',
+            'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.columns.random_order.description',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -75,8 +75,8 @@ return [
             ]
         ],
         'private_surfey' => [
-            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.private_surfey.label',
-            'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.private_surfey.description',
+            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.columns.private_surfey.label',
+            'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.columns.private_surfey.description',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -84,8 +84,8 @@ return [
             ]
         ],
         'single_submission' => [
-            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.single_submission.label',
-            'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.single_submission.description',
+            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.columns.single_submission.label',
+            'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.columns.single_submission.description',
             'displayCond' => 'FIELD:private_surfey:!=:0',
             'config' => [
                 'type' => 'check',
@@ -94,8 +94,8 @@ return [
             ]
         ],
         'notifications' => [
-            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.notifications.label',
-            'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_survey_definition.columns.notifications.description',
+            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.columns.notifications.label',
+            'description' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_definition.columns.notifications.description',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',

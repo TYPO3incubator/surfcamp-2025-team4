@@ -2,5 +2,5 @@ tt_content.surfey =< lib.contentElement
 tt_content.surfey {
     templateName = Generic
     20 = USER
-    20.userFunc = TYPO3Incubator\Surfey\Controller\SurveyController->render
+    20.userFunc = TYPO3Incubator\Surfey\Controller\SurfeyController->render
 }

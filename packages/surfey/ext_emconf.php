@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Surfey',
-    'description' => 'Create, manage, and analyze surveys with ease in TYPO3.',
+    'description' => 'Create, manage, and analyze surfeys with ease in TYPO3.',
     'category' => 'module',
     'author' => 'TYPO3 Surfcamp Team 4',
     'author_email' => 'typo3cms@typo3.org',

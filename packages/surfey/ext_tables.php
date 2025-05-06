@@ -6,7 +6,7 @@ defined('TYPO3') or die('Access denied.');
 
 ExtensionManagementUtility::addToAllTCAtypes(
     'tt_content',
-    'tx_survey_definition',
+    'tx_surfey_definition',
     '',
     'after:bodytext'
 );

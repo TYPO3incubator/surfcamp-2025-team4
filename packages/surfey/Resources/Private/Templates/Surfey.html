@@ -1,0 +1,10 @@
+<div class="surfey">
+    <h2>{record.header}</h2>
+    <f:if condition="{record.bodytext}">
+        <div class="bodytext">
+            <f:format.html>{record.bodytext}</f:format.html>
+        </div>
+    </f:if>
+
+    <h3>Surfey: {record.tx_surfey_definition.title}</h3>
+</div>

@@ -1,4 +1,4 @@
-# Surfey - Create, manage, and analyze surveys with ease in TYPO3
+# Surfey - Create, manage, and analyze surfeys with ease in TYPO3
 
 ## Installation
 
