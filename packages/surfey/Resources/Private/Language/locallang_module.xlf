@@ -4,7 +4,7 @@
         <header/>
         <body>
             <trans-unit id="management.module.shortDescription">
-                <source>Survey Administration</source>
+                <source>Surfey Administration</source>
             </trans-unit>
             <trans-unit id="management.module.description">
                 <source>This is the administration area for Surfey.</source>

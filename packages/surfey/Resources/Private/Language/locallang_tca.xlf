@@ -3,37 +3,40 @@
     <file source-language="en" datatype="plaintext" original="EXT:surfey/Resources/Private/Language/locallang_tca.xlf" date="2025-05-05T11:00:00Z">
         <header/>
         <body>
-            <trans-unit id="tx_survey_definition.title">
+            <trans-unit id="tt_content.columns.tx_surfey_definition.label">
                 <source>Surfey Definition</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.title.label">
+            <trans-unit id="tx_surfey_definition.title">
+                <source>Surfey Definition</source>
+            </trans-unit>
+            <trans-unit id="tx_surfey_definition.columns.title.label">
                 <source>Title</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.definition.label">
+            <trans-unit id="tx_surfey_definition.columns.definition.label">
                 <source>Definition</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.random_order.label">
+            <trans-unit id="tx_surfey_definition.columns.random_order.label">
                 <source>Random Order</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.random_order.description">
+            <trans-unit id="tx_surfey_definition.columns.random_order.description">
                 <source>If enabled, the questions will be in random order.</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.private_surfey.label">
+            <trans-unit id="tx_surfey_definition.columns.private_surfey.label">
                 <source>Private Surfey</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.private_surfey.description">
+            <trans-unit id="tx_surfey_definition.columns.private_surfey.description">
                 <source>If enabled, this surfey will only be accessible by an invite link.</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.single_submission.label">
+            <trans-unit id="tx_surfey_definition.columns.single_submission.label">
                 <source>Single Submission</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.single_submission.description">
-                <source>If enabled, each user can only submit the survey once.</source>
+            <trans-unit id="tx_surfey_definition.columns.single_submission.description">
+                <source>If enabled, each user can only submit the surfey once.</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.notifications.label">
+            <trans-unit id="tx_surfey_definition.columns.notifications.label">
                 <source>Enable Notifications</source>
             </trans-unit>
-            <trans-unit id="tx_survey_definition.columns.notifications.description">
+            <trans-unit id="tx_surfey_definition.columns.notifications.description">
                 <source>If enabled, notifications / E-Mails  will be sent when new responses are received.</source>
             </trans-unit>
             <trans-unit id="tx_surfey_submission.title">
@@ -51,6 +54,13 @@
 
             <trans-unit id="element.surfeyEditor.button.label">
                 <source>Surfey Editor</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.CType.surfey.title">
+                <source>Surfey</source>
+            </trans-unit>
+            <trans-unit id="tt_content.CType.surfey.description">
+                <source>Displays a surfey by selecting a predefined surfey definition</source>
             </trans-unit>
         </body>
     </file>
