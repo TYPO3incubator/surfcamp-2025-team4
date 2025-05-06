@@ -68,6 +68,15 @@
                 <source>Surfey Editor</source>
                 <target>Surfey Editor</target>
             </trans-unit>
+
+            <trans-unit id="element.surfey.title">
+                <source>Surfey</source>
+                <target>Surfey</target>
+            </trans-unit>
+            <trans-unit id="element.surfey.description">
+                <source>Displays a survey by selecting a predefined survey definition</source>
+                <target>Zeigt eine Umfrage basierend auf einer ausgewählten Definition an</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

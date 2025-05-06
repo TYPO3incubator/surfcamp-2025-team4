@@ -52,6 +52,13 @@
             <trans-unit id="element.surfeyEditor.button.label">
                 <source>Surfey Editor</source>
             </trans-unit>
+
+            <trans-unit id="element.surfey.title">
+                <source>Surfey</source>
+            </trans-unit>
+            <trans-unit id="element.surfey.description">
+                <source>Displays a survey by selecting a predefined survey definition</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
