@@ -1,0 +1,20 @@
+{
+  "$id": "https://typo3.org/schemas/finishers/redirect.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Redirect",
+  "type": "object",
+  "properties": {
+    "finisherType": {
+      "const": "Redirect"
+    },
+    "pageUid": {
+      "type": "string"
+    },
+    "additionalParameters": {
+      "type": "string"
+    },
+    "fragment": {
+      "type": "string"
+    }
+  }
+}

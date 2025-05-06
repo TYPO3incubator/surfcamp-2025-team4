@@ -1,0 +1,20 @@
+{
+  "$id": "https://typo3.org/schemas/validators/count.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Count",
+  "type": "object",
+  "properties": {
+    "validatorType": {
+      "const": "Count"
+    },
+    "min": {
+      "type": "integer"
+    },
+    "max": {
+      "type": "integer"
+    },
+    "customErrorMessage": {
+      "type": "string"
+    }
+  }
+}

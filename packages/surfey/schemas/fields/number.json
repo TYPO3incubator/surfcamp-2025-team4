@@ -1,0 +1,50 @@
+{
+  "$id": "https://typo3.org/schemas/fields/number.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Number",
+  "type": "object",
+  "properties": {
+    "elementType": {
+      "const": "Number"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "defaultValue": {
+        "type": "string"
+      },
+      "placeholder": {
+        "type": "string"
+      },
+      "step": {
+        "type": "integer"
+      },
+      "required": {
+        "type": "boolean"
+      },
+      "requiredValidationErrorMessage": {
+        "type": "string"
+      },
+      "autocomplete": {
+        "type": "string"
+      }
+    },
+    "validators": {
+      "anyOf": [
+        {
+          "$ref": "validators/notEmpty.json"
+        },
+        {
+          "$ref": "validators/number.json"
+        }
+      ]
+    }
+  }
+}

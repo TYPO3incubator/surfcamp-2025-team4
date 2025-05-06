@@ -1,0 +1,61 @@
+{
+  "$id": "https://typo3.org/schemas/fields/multiCheckbox.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Multi Checkbox",
+  "type": "object",
+  "properties": {
+    "elementType": {
+      "const": "MultiCheckbox"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "defaultValues": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "options": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": {
+        "type": "boolean"
+      },
+      "requiredValidationErrorMessage": {
+        "type": "string"
+      },
+      "autocomplete": {
+        "type": "string"
+      }
+    },
+    "validators": {
+      "anyOf": [
+        {
+          "$ref": "validators/notEmpty.json"
+        },
+        {
+          "$ref": "validators/count.json"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$id": "https://typo3.org/schemas/fields/date.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Date",
+  "type": "object",
+  "properties": {
+    "elementType": {
+      "const": "Date"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "defaultValue": {
+        "type": "string"
+      },
+      "min": {
+        "type": "string"
+      },
+      "max": {
+        "type": "string"
+      },
+      "step": {
+        "type": "integer"
+      },
+      "required": {
+        "type": "boolean"
+      },
+      "requiredValidationErrorMessage": {
+        "type": "string"
+      },
+      "autocomplete": {
+        "type": "string"
+      }
+    },
+    "validators": {
+      "anyOf": [
+        {
+          "$ref": "validators/dateRange.json"
+        }
+      ]
+    }
+  }
+}

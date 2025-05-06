@@ -1,0 +1,62 @@
+{
+  "$id": "https://typo3.org/schemas/fields/text.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Text",
+  "type": "object",
+  "properties": {
+    "elementType": {
+      "const": "Text"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "defaultValue": {
+        "type": "string"
+      },
+      "placeholder": {
+        "type": "string"
+      },
+      "required": {
+        "type": "boolean"
+      },
+      "requiredValidationErrorMessage": {
+        "type": "string"
+      },
+      "autocomplete": {
+        "type": "string"
+      }
+    },
+    "validators": {
+      "anyOf": [
+        {
+          "$ref": "validators/notEmpty.json"
+        },
+        {
+          "$ref": "validators/stringLength.json"
+        },
+        {
+          "$ref": "validators/emailAddress.json"
+        },
+        {
+          "$ref": "validators/numberRange.json"
+        },
+        {
+          "$ref": "validators/alphanumeric.json"
+        },
+        {
+          "$ref": "validators/integer.json"
+        },
+        {
+          "$ref": "validators/float.json"
+        }
+      ]
+    }
+  }
+}

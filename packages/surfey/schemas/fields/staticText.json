@@ -1,0 +1,22 @@
+{
+  "$id": "https://typo3.org/schemas/fields/staticText.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Static Text",
+  "type": "object",
+  "properties": {
+    "elementType": {
+      "const": "StaticText"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "properties": {
+      "text": {
+        "type": "string"
+      }
+    }
+  }
+}

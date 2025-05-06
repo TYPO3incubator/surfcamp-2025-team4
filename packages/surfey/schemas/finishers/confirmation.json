@@ -1,0 +1,17 @@
+{
+  "$id": "https://typo3.org/schemas/finishers/confirmation.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Confirmation",
+  "type": "object",
+  "properties": {
+    "finisherType": {
+      "const": "Confirmation"
+    },
+    "contentElementUid": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

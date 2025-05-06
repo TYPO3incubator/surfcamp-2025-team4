@@ -1,0 +1,59 @@
+{
+  "$id": "https://typo3.org/schemas/fields/countrySelect.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Country Select",
+  "type": "object",
+  "properties": {
+    "elementType": {
+      "const": "CountySelect"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "prependOptionLabel": {
+        "type": "string"
+      },
+      "prioritizedCountries": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "onlyCountries": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "excludeCountries": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "required": {
+        "type": "boolean"
+      },
+      "requiredValidationErrorMessage": {
+        "type": "string"
+      },
+      "autocomplete": {
+        "type": "string"
+      }
+    },
+    "validators": {
+      "anyOf": [
+        {
+          "$ref": "validators/notEmpty.json"
+        }
+      ]
+    }
+  }
+}

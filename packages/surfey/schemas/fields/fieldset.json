@@ -1,0 +1,17 @@
+{
+  "$id": "https://typo3.org/schemas/fields/fieldset.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Fieldset",
+  "type": "object",
+  "properties": {
+    "elementType": {
+      "const": "Fieldset"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

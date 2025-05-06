@@ -1,0 +1,38 @@
+{
+  "$id": "https://typo3.org/schemas/fields/checkbox.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Checkbox",
+  "type": "object",
+  "properties": {
+    "elementType": {
+      "const": "Checkbox"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "required": {
+        "type": "boolean"
+      },
+      "requiredValidationErrorMessage": {
+        "type": "string"
+      },
+      "autocomplete": {
+        "type": "string"
+      }
+    },
+    "validators": {
+      "anyOf": [
+        {
+          "$ref": "validators/notEmpty.json"
+        }
+      ]
+    }
+  }
+}
