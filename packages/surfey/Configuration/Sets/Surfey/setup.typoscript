@@ -1,5 +1,5 @@
-tt_content.surfey_survey =< lib.contentElement
-tt_content.surfey_survey {
+tt_content.surfey =< lib.contentElement
+tt_content.surfey {
     templateName = Generic
     20 = USER
     20.userFunc = TYPO3Incubator\Surfey\Controller\SurveyController->render

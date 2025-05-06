@@ -1,11 +1,19 @@
 <?php
+
 namespace TYPO3Incubator\Surfey\Controller;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\View\StandaloneView;
+use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
+#[Autoconfigure(public: true)]
 class SurveyController
 {
+    public function __construct(
+        private ViewFactoryInterface $viewFactory,
+    ) {}
     /**
      * Renders the survey content element
      *
@@ -13,19 +21,21 @@ class SurveyController
      * @param array $conf The TypoScript configuration
      * @return string The rendered content
      */
-    public function render($content, $conf): string
+    public function render($content, $conf, ServerRequestInterface $request): string
     {
-        $view = GeneralUtility::makeInstance(StandaloneView::class);
+        $viewFactoryData = new ViewFactoryData(
+            templatePathAndFilename: 'EXT:surfey/Resources/Private/Templates/Survey.html',
+            request: $request,
+        );
 
-        $view->setTemplateRootPaths([0 => 'EXT:surfey/Resources/Private/Templates/']);
-        $view->setPartialRootPaths([0 => 'EXT:surfey/Resources/Private/Partials/']);
-        $view->setLayoutRootPaths([0 => 'EXT:surfey/Resources/Private/Layouts/']);
+        $view = $this->viewFactory->create($viewFactoryData);
 
-        $view->setTemplate('Survey');
+        /** @var ContentObjectRenderer $currentContentObject */
+        $currentContentObject = $request->getAttribute('currentContentObject');
 
-        $data = $GLOBALS['TSFE']->cObj->data;
+        $view->assign('data', $currentContentObject->data);
 
-        $view->assign('data', $data);
+        $view->getRenderingContext()->setAttribute(ServerRequestInterface::class, $request);
 
         return $view->render();
     }
