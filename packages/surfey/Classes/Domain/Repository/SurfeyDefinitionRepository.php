@@ -42,6 +42,16 @@ readonly class SurfeyDefinitionRepository
         return $this->map($queryBuilder->executeQuery()->fetchAllAssociative());
     }
 
+    public function countAll(?int $pid = null): int
+    {
+        $qb = $this->getPreparedQueryBuilder();
+        if ($pid !== null) {
+            $qb->where($qb->expr()->eq('pid', $qb->createNamedParameter($pid, Connection::PARAM_INT)));
+        }
+
+        return (int)$qb->count('*')->executeQuery()->fetchOne();
+    }
+
     /**
      * @return SurfeyDefinition[]
      */
@@ -80,6 +90,13 @@ readonly class SurfeyDefinitionRepository
                 $queryBuilder->createNamedParameter($demand->isPrivateSurfey(), Connection::PARAM_BOOL)
             );
         }
+        if ($demand->hasPid()) {
+            $constraints[] = $queryBuilder->expr()->eq(
+                'pid',
+                $queryBuilder->createNamedParameter($demand->getPid(), Connection::PARAM_INT)
+            );
+        }
+
 
         if (!empty($constraints)) {
             $queryBuilder->where(...$constraints);

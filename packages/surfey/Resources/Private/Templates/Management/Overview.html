@@ -3,7 +3,28 @@
 <f:layout name="Module" />
 
 <f:section name="Content">
+    <f:be.pageRenderer
+        includeJavaScriptModules="{
+            0: '@typo3/backend/context-menu.js',
+            1: '@typo3/backend/modal.js',
+        }"
+    />
+
+    <f:variable
+        name="returnUrl"
+        value="{f:be.uri(route:'web_surfey')}"
+    />
+
     <h1><f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:management.module.title" /></h1>
+
+    <ul>
+
+        <f:for each="{definitions}" as="definition" iteration="iteration">
+            <li>{definition.title}</li>
+        </f:for>
+
+    </ul>
+
 </f:section>
 
 </html>
