@@ -1,0 +1,44 @@
+{
+  "$id": "https://typo3.org/schemas/fields/telephoneNumber.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Telephone Number",
+  "type": "object",
+  "properties": {
+    "elementType": {
+      "const": "Telephone"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "defaultValue": {
+        "type": "string"
+      },
+      "placeholder": {
+        "type": "string"
+      },
+      "required": {
+        "type": "boolean"
+      },
+      "requiredValidationErrorMessage": {
+        "type": "string"
+      },
+      "autocomplete": {
+        "type": "string"
+      }
+    },
+    "validators": {
+      "anyOf": [
+        {
+          "$ref": "validators/notEmpty.json"
+        }
+      ]
+    }
+  }
+}

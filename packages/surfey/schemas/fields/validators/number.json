@@ -1,0 +1,14 @@
+{
+  "$id": "https://typo3.org/schemas/validators/number.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Number",
+  "type": "object",
+  "properties": {
+    "validatorType": {
+      "const": "Number"
+    },
+    "customErrorMessage": {
+      "type": "string"
+    }
+  }
+}

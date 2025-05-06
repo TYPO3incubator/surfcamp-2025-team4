@@ -1,0 +1,14 @@
+{
+  "$id": "https://typo3.org/schemas/validators/integer.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Integer",
+  "type": "object",
+  "properties": {
+    "validatorType": {
+      "const": "Integer"
+    },
+    "customErrorMessage": {
+      "type": "string"
+    }
+  }
+}

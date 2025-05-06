@@ -1,0 +1,17 @@
+{
+  "$id": "https://typo3.org/schemas/fields/gridColumn.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grid Column",
+  "type": "object",
+  "properties": {
+    "elementType": {
+      "const": "Grid: Column"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

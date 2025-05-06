@@ -1,0 +1,36 @@
+{
+  "$id": "https://typo3.org/schemas/surfey.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Surfey",
+  "type": "object",
+  "properties": {
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "prototypeName": {
+      "type": "string"
+    },
+    "submitButtonLabel": {
+      "type": "string"
+    },
+    "finishers": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          { "$ref": "finishers/confirmation.json"},
+          { "$ref": "finishers/redirect.json"}
+        ]
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+         "$ref": "page.json"
+      }
+    }
+  }
+}
+

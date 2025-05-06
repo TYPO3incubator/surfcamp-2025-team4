@@ -1,0 +1,14 @@
+{
+  "$id": "https://typo3.org/schemas/validators/emailAddress.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Email Address",
+  "type": "object",
+  "properties": {
+    "validatorType": {
+      "const": "EmailAddress"
+    },
+    "customErrorMessage": {
+      "type": "string"
+    }
+  }
+}
