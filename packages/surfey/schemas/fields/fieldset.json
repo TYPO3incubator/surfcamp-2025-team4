@@ -1,6 +1,6 @@
 {
   "$id": "https://typo3.org/schemas/fields/fieldset.json",
-  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Fieldset",
   "type": "object",
   "properties": {
@@ -12,6 +12,31 @@
     },
     "label": {
       "type": "string"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          { "$ref": "../fields/checkbox.json"},
+          { "$ref": "../fields/contentElement.json"},
+          { "$ref": "../fields/countrySelect.json"},
+          { "$ref": "../fields/date.json"},
+          { "$ref": "../fields/emailAddress.json"},
+          { "$ref": "../fields/fieldset.json"},
+          { "$ref": "../fields/gridColumn.json"},
+          { "$ref": "../fields/gridRow.json"},
+          { "$ref": "../fields/multiCheckbox.json"},
+          { "$ref": "../fields/multiSelect.json"},
+          { "$ref": "../fields/number.json"},
+          { "$ref": "../fields/radio.json"},
+          { "$ref": "../fields/singleSelect.json"},
+          { "$ref": "../fields/staticText.json"},
+          { "$ref": "../fields/telephoneNumber.json"},
+          { "$ref": "../fields/text.json"},
+          { "$ref": "../fields/textarea.json"},
+          { "$ref": "../fields/url.json"}
+        ]
+      }
     }
   }
 }

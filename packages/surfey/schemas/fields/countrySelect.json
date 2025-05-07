@@ -1,6 +1,6 @@
 {
   "$id": "https://typo3.org/schemas/fields/countrySelect.json",
-  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Country Select",
   "type": "object",
   "properties": {
@@ -13,39 +13,42 @@
     "label": {
       "type": "string"
     },
-    "properties": {
-      "description": {
-        "type": "string"
-      },
-      "prependOptionLabel": {
-        "type": "string"
-      },
-      "prioritizedCountries": {
-        "type": "array",
-        "items": {
+    "settings": {
+      "type": "object",
+      "properties": {
+        "fieldDescription": {
+          "type": "string"
+        },
+        "prependOptionLabel": {
+          "type": "string"
+        },
+        "prioritizedCountries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "onlyCountries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excludeCountries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "requiredValidationErrorMessage": {
+          "type": "string"
+        },
+        "autocomplete": {
           "type": "string"
         }
-      },
-      "onlyCountries": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "excludeCountries": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "required": {
-        "type": "boolean"
-      },
-      "requiredValidationErrorMessage": {
-        "type": "string"
-      },
-      "autocomplete": {
-        "type": "string"
       }
     },
     "validators": {

@@ -1,6 +1,6 @@
 {
   "$id": "https://typo3.org/schemas/fields/radio.json",
-  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Radio",
   "type": "object",
   "properties": {
@@ -13,35 +13,38 @@
     "label": {
       "type": "string"
     },
-    "properties": {
-      "description": {
-        "type": "string"
-      },
-      "defaultValue": {
-        "type": "string"
-      },
-      "options": {
-        "type": "array",
-        "items": {
+    "settings": {
+      "type": "object",
+      "properties": {
+        "fieldDescription": {
+          "type": "string"
+        },
+        "defaultValue": {
+          "type": "string"
+        },
+        "options": {
           "type": "array",
-          "prefixItems": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "string"
-            }
-          ]
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "requiredValidationErrorMessage": {
+          "type": "string"
+        },
+        "autocomplete": {
+          "type": "string"
         }
-      },
-      "required": {
-        "type": "boolean"
-      },
-      "requiredValidationErrorMessage": {
-        "type": "string"
-      },
-      "autocomplete": {
-        "type": "string"
       }
     },
     "validators": {

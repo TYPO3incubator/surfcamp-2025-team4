@@ -1,6 +1,6 @@
 {
   "$id": "https://typo3.org/schemas/validators/stringLength.json",
-  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "String length",
   "type": "object",
   "properties": {
@@ -8,7 +8,7 @@
       "const": "StringLength"
     },
     "min": {
-      "type": "ineger"
+      "type": "integer"
     },
     "max": {
       "type": "integer"
