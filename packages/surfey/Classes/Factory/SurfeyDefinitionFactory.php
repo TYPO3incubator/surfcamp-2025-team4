@@ -20,7 +20,7 @@ namespace TYPO3Incubator\Surfey\Factory;
 use TYPO3\CMS\Core\Domain\RecordFactory;
 use TYPO3Incubator\Surfey\Domain\Model\SurfeyDefinition;
 
-final readonly class SurfeyDefinitionnFactory
+final readonly class SurfeyDefinitionFactory
 {
     public function __construct(
         private RecordFactory $recordFactory

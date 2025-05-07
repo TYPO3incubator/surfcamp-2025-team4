@@ -25,14 +25,14 @@ use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3Incubator\Surfey\Domain\Model\SurfeyDefinition;
 use TYPO3Incubator\Surfey\Domain\Model\SurfeyDefinitionDemand;
-use TYPO3Incubator\Surfey\Factory\SurfeyDefinitionnFactory;
+use TYPO3Incubator\Surfey\Factory\SurfeyDefinitionFactory;
 
 readonly class SurfeyDefinitionRepository
 {
 
     public function __construct(
-        private ConnectionPool $connectionPool,
-        private SurfeyDefinitionnFactory $surfeyDefinitionnFactory,
+        private ConnectionPool          $connectionPool,
+        private SurfeyDefinitionFactory $surfeyDefinitionFactory,
     ) {
     }
 
@@ -115,7 +115,7 @@ readonly class SurfeyDefinitionRepository
 
     protected function mapSingleRow(array $row): SurfeyDefinition
     {
-        return $this->surfeyDefinitionnFactory->createFromRow(
+        return $this->surfeyDefinitionFactory->createFromRow(
             BackendUtility::convertDatabaseRowValuesToPhp('tx_surfey_definition', $row)
         );
     }
