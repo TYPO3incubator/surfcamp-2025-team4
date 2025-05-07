@@ -18,7 +18,9 @@ declare(strict_types=1);
 namespace TYPO3Incubator\Surfey\Factory;
 
 use TYPO3\CMS\Core\Domain\RecordFactory;
+use TYPO3\CMS\Core\Domain\RecordInterface;
 use TYPO3Incubator\Surfey\Domain\Model\SurfeyDefinition;
+use TYPO3Incubator\Surfey\Domain\Model\SurfeySubmission;
 
 final readonly class SurfeyDefinitionFactory
 {
@@ -30,14 +32,6 @@ final readonly class SurfeyDefinitionFactory
     public function createFromRow(array $row): SurfeyDefinition
     {
         $resolvedRecord = $this->recordFactory->createResolvedRecordFromDatabaseRow('tx_surfey_definition', $row);
-
-        return new SurfeyDefinition(
-            $resolvedRecord->get('title'),
-            [], // @todo fix this
-            (bool)$resolvedRecord->get('random_order'),
-            (bool)$resolvedRecord->get('private_surfey'),
-            (bool)$resolvedRecord->get('single_submission'),
-            (bool)$resolvedRecord->get('notifications'),
-        );
+        return new SurfeyDefinition($resolvedRecord);
     }
 }

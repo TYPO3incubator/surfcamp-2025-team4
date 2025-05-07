@@ -17,15 +17,14 @@ declare(strict_types=1);
 
 namespace TYPO3Incubator\Surfey\Domain\Model;
 
-final class SurfeyDefinition
+use TYPO3\CMS\Core\Domain\RecordInterface;
+
+final class SurfeyDefinition implements RecordInterface
 {
+    use SurfeyEntityTrait;
+
     public function __construct(
-        public string $title,
-        public array $definition,
-        public bool $randomOrder,
-        public bool $privateSurfey,
-        public bool $singleSubmission,
-        public bool $notifications,
+        public RecordInterface $record,
     ) {
     }
 }

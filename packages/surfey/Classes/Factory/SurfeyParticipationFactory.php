@@ -18,18 +18,19 @@ declare(strict_types=1);
 namespace TYPO3Incubator\Surfey\Factory;
 
 use TYPO3\CMS\Core\Domain\RecordFactory;
-use TYPO3Incubator\Surfey\Domain\Model\SurfeySubmission;
+use TYPO3Incubator\Surfey\Domain\Model\SurfeyDefinition;
+use TYPO3Incubator\Surfey\Domain\Model\SurfeyParticipation;
 
-final readonly class SurfeySubmissionFactory
+final readonly class SurfeyParticipationFactory
 {
     public function __construct(
         private RecordFactory $recordFactory,
     ){
     }
 
-    public function createFromRow(array $row): SurfeySubmission
+    public function createFromRow(array $row): SurfeyParticipation
     {
-        $resolvedRecord = $this->recordFactory->createResolvedRecordFromDatabaseRow('tx_surfey_submission', $row);
-        return new SurfeySubmission($resolvedRecord);
+        $resolvedRecord = $this->recordFactory->createResolvedRecordFromDatabaseRow('tx_surfey_participation', $row);
+        return new SurfeyParticipation($resolvedRecord);
     }
 }

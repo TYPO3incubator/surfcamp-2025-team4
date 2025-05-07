@@ -51,21 +51,38 @@
                 <source>If enabled, notifications / E-Mails  will be sent when new responses are received.</source>
                 <target>Wenn aktiviert werden Benachrichtigungen / E-Mails gesendet, wenn neue Antworten eingehen.</target>
             </trans-unit>
-            <trans-unit id="tx_surfey_definition.title">
+            <trans-unit id="tx_surfey_submission.title">
                 <source>Surfey Submission</source>
                 <target>Surfey Abgabe</target>
             </trans-unit>
-            <trans-unit id="tx_surfey_definition.columns.surfey.label">
+            <trans-unit id="tx_surfey_submission.columns.surfey.label">
                 <source>Surfey</source>
                 <target>Surfey</target>
             </trans-unit>
-            <trans-unit id="tx_surfey_definition.columns.hash.label">
+            <trans-unit id="tx_surfey_submission.columns.hash.label">
                 <source>Hash</source>
                 <target>Hash</target>
             </trans-unit>
-            <trans-unit id="tx_surfey_definition.columns.data.label">
+            <trans-unit id="tx_surfey_submission.columns.data.label">
                 <source>Data</source>
                 <target>Daten</target>
+            </trans-unit>
+
+            <trans-unit id="tx_surfey_participation.title">
+                <source>Surfey Participation</source>
+                <target>Surfey Teilnahme</target>
+            </trans-unit>
+            <trans-unit id="tx_surfey_participation.columns.surfey.label">
+                <source>Surfey</source>
+                <target>Surfey</target>
+            </trans-unit>
+            <trans-unit id="tx_surfey_participation.columns.identifier.label">
+                <source>Identifier</source>
+                <target>Identifier</target>
+            </trans-unit>
+            <trans-unit id="tx_surfey_participation.columns.fe_user.label">
+                <source>Frontend User</source>
+                <target>Frontend Benutzer</target>
             </trans-unit>
 
             <trans-unit id="element.surfeyEditor.button.label">

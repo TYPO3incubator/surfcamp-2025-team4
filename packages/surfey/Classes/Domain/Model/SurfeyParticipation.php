@@ -19,7 +19,7 @@ namespace TYPO3Incubator\Surfey\Domain\Model;
 
 use TYPO3\CMS\Core\Domain\RecordInterface;
 
-final class SurfeySubmission implements RecordInterface
+final class SurfeyParticipation implements RecordInterface
 {
     use SurfeyEntityTrait;
 
