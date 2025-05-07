@@ -1,6 +1,6 @@
 {
   "$id": "https://typo3.org/schemas/validators/numberRange.json",
-  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Number Range",
   "type": "object",
   "properties": {

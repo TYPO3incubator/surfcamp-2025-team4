@@ -1,6 +1,6 @@
 {
   "$id": "https://typo3.org/schemas/fields/multiCheckbox.json",
-  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Multi Checkbox",
   "type": "object",
   "properties": {
@@ -13,38 +13,41 @@
     "label": {
       "type": "string"
     },
-    "properties": {
-      "description": {
-        "type": "string"
-      },
-      "defaultValues": {
-        "type": "array",
-        "items": {
+    "settings": {
+      "type": "object",
+      "properties": {
+        "fieldDescription": {
+          "type": "string"
+        },
+        "defaultValues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "requiredValidationErrorMessage": {
+          "type": "string"
+        },
+        "autocomplete": {
           "type": "string"
         }
-      },
-      "options": {
-        "type": "array",
-        "items": {
-          "type": "array",
-          "prefixItems": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        }
-      },
-      "required": {
-        "type": "boolean"
-      },
-      "requiredValidationErrorMessage": {
-        "type": "string"
-      },
-      "autocomplete": {
-        "type": "string"
       }
     },
     "validators": {
