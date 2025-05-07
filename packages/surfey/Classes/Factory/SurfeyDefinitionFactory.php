@@ -22,7 +22,7 @@ use TYPO3\CMS\Core\Domain\RecordInterface;
 use TYPO3Incubator\Surfey\Domain\Model\SurfeyDefinition;
 use TYPO3Incubator\Surfey\Domain\Model\SurfeySubmission;
 
-final readonly class SurfeyDefinitionnFactory
+final readonly class SurfeyDefinitionFactory
 {
     public function __construct(
         private RecordFactory $recordFactory
