@@ -52,6 +52,19 @@
                 <source>Data</source>
             </trans-unit>
 
+            <trans-unit id="tx_surfey_participation.title">
+                <source>Surfey Participation</source>
+            </trans-unit>
+            <trans-unit id="tx_surfey_participation.columns.surfey.label">
+                <source>Surfey</source>
+            </trans-unit>
+            <trans-unit id="tx_surfey_participation.columns.identifier.label">
+                <source>Identifier</source>
+            </trans-unit>
+            <trans-unit id="tx_surfey_participation.columns.fe_user.label">
+                <source>Frontend User</source>
+            </trans-unit>
+
             <trans-unit id="element.surfeyEditor.button.label">
                 <source>Surfey Editor</source>
             </trans-unit>
