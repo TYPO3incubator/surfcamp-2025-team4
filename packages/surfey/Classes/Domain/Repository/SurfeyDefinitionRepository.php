@@ -66,7 +66,7 @@ readonly class SurfeyDefinitionRepository
 
     protected function getQueryBuilderForDemand(SurfeyDefinitionDemand $demand): QueryBuilder
     {
-        $queryBuilder = $this->getPreparedQueryBuilder();
+        $queryBuilder = $this->getPreparedQueryBuilder(true);
         $queryBuilder->orderBy(
             $demand->getOrderField(),
             $demand->getOrderDirection()

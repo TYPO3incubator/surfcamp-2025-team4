@@ -99,7 +99,7 @@ class SurfeyDefinitionDemand
 
     public function isPrivateSurfey(): bool
     {
-        return $this->privateSurfey;
+        return (bool)$this->privateSurfey;
     }
 
     public function hasPrivateSurfey(): bool

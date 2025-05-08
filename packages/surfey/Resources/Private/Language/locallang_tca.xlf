@@ -39,6 +39,10 @@
             <trans-unit id="tx_surfey_definition.columns.notifications.description">
                 <source>If enabled, notifications / E-Mails  will be sent when new responses are received.</source>
             </trans-unit>
+            <trans-unit id="tx_surfey_definition.created">
+                <source>Created</source>
+            </trans-unit>
+
             <trans-unit id="tx_surfey_submission.title">
                 <source>Surfey Submission</source>
             </trans-unit>
