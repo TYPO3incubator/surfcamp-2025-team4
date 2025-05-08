@@ -131,10 +131,6 @@
             </thead>
             <tbody data-multi-record-selection-row-selection="true">
             <f:for each="{definitions}" as="definition" iteration="iteration">
-
-                <f:comment>
-                    <f:variable name="definitionRecord" value="{definition as array}"/>
-                </f:comment>
                 <tr data-uid="{definition.uid}" data-multi-record-selection-element="true">
                     <td class="col-checkbox">
                         <span class="form-check form-check-type-toggle">
@@ -151,7 +147,7 @@
                             title="{definition.title}"
                             aria-label="{f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.contextMenu.open')}"
                         >
-                            <core:icon identifier="content-form" />
+                            <core:iconForRecord table="tx_surfey_definition" row="{id: definition.uid}" />
                         </button>
                     </td>
                     <td>
@@ -273,6 +269,7 @@
         >
             <core:icon identifier="actions-open" />
         </be:link.editRecord>
+
         <f:if condition="{definitionRecord.hidden} == 1">
             <f:then>
                 <a
