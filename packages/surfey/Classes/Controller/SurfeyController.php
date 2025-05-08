@@ -5,10 +5,10 @@ namespace TYPO3Incubator\Surfey\Controller;
 use Psr\Http\Message\ServerRequestInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use TYPO3\CMS\Core\Domain\RecordFactory;
-use TYPO3\CMS\Core\Domain\RecordInterface;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\View\ViewFactoryData;
 use TYPO3\CMS\Core\View\ViewFactoryInterface;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Extbase\Mvc\Web\RequestBuilder;
 
 #[Autoconfigure(public: true)]
 final readonly class SurfeyController
@@ -41,6 +41,9 @@ final readonly class SurfeyController
         $definition = $record->get('tx_surfey_definition')->get('definition');
 
         $view = $this->viewFactory->create($viewFactoryData);
+        $requestBuilder = GeneralUtility::makeInstance(RequestBuilder::class);
+        $request = $requestBuilder->build($request);
+
         $view->getRenderingContext()->setAttribute(ServerRequestInterface::class, $request);
 
         $view->assign('record', $record);
