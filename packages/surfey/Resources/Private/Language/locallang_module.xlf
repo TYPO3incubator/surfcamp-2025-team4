@@ -47,6 +47,9 @@
             <trans-unit id="filter.name">
                 <source>Name</source>
             </trans-unit>
+            <trans-unit id="filter.privateSurfey">
+                <source>Private Surfey</source>
+            </trans-unit>
             <trans-unit id="filter.sendButton">
                 <source>Filter</source>
             </trans-unit>
@@ -63,6 +66,10 @@
             </trans-unit>
             <trans-unit id="status.finished">
                 <source>Finished</source>
+            </trans-unit>
+
+            <trans-unit id="labels.yes">
+                <source>Yes</source>
             </trans-unit>
 
             <!-- Datum-Format -->

@@ -24,10 +24,10 @@ use TYPO3Incubator\Surfey\Pagination\DemandedArrayPaginator;
 readonly class ManagementController
 {
     public function __construct(
-        private ModuleTemplateFactory      $moduleTemplateFactory,
+        private ModuleTemplateFactory $moduleTemplateFactory,
         private SurfeyDefinitionRepository $surfeyDefinitionRepository,
-        private UriBuilder                 $uriBuilder,
-        private IconFactory                $iconFactory,
+        private UriBuilder $uriBuilder,
+        private IconFactory $iconFactory,
     )
     {
     }

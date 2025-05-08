@@ -54,17 +54,25 @@
 </f:section>
 
 <f:section name="filter">
-    <form action="{f:be.uri(route:'web_surfey')}" method="post" enctype="multipart/form-data" name="demand">
+    <form method="post" enctype="multipart/form-data" name="demand">
         <input type="hidden" name="orderField" value="{demand.orderField}">
         <input type="hidden" name="orderDirection" value="{demand.orderDirection}">
         <div class="form-row">
             <div class="form-group">
                 <label for="demand-name" class="form-label"><f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:filter.name"/></label>
-                <input type="text" id="demand-name" class="form-control" name="demand[name]" value="{demand.name}"/>
+                <input type="text" id="demand-name" class="form-control" name="demand[title]" value="{demand.title}"/>
+            </div>
+            <div class="form-group">
+                <div class="form-check form-switch form-check-size-input">
+                    <input type="checkbox" class="form-check-input" name="demand[private_surfey]" id="demand-private-surfey" value="1" data-on-change="submit" {f:if(condition: demand.privateSurfey, then: 'checked="checked"')}>
+                    <label class="form-check-label" for="demand-private-surfey">
+                        <f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:filter.privateSurfey"/>
+                    </label>
+                </div>
             </div>
             <div class="form-group align-self-end">
                 <input type="submit" value="{f:translate(key: 'LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:filter.sendButton')}" class="btn btn-default" />
-                <a href="{f:be.uri(route:'web_surfey')}" class="btn btn-link"><f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:filter.resetButton"/></a>
+                <a href="{returnUrl}" class="btn btn-link"><f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:filter.resetButton"/></a>
             </div>
         </div>
     </form>
@@ -122,6 +130,9 @@
                     </div>
                 </th>
                 <th colspan="2"><f:render section="listHeaderSorting" arguments="{field: 'title', label: 'tx_surfey_definition.title', demand: demand}"/></th>
+                <th>
+                    <f:render section="listHeaderSorting" arguments="{field: 'privateSurfey', label: 'tx_surfey_definition.columns.private_surfey.label', demand: demand}"/>
+                </th>
                 <th class="col-control"></th>
             </tr>
             </thead>
@@ -155,6 +166,15 @@
                         >
                             {definition.title}
                         </be:link.editRecord>
+                    </td>
+                    <td>
+                        <f:if condition="{definition.private_surfey}">
+                            <f:then>
+                                <span class="badge badge-success">
+                                    <f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:labels.yes"/>
+                                </span>
+                            </f:then>
+                        </f:if>
                     </td>
                     <td class="col-control">
                         <f:render section="controls" arguments="{_all}" />
