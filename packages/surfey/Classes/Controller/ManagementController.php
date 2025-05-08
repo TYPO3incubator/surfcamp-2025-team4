@@ -38,9 +38,7 @@ readonly class ManagementController
         $view->setTitle($this->getLanguageService()->sL('LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:management.module.title'));
 
         $demand = SurfeyDefinitionDemand::fromRequest($request);
-        $requestUri = $request->getAttribute('normalizedParams')->getRequestUri();
-
-        $this->registerDocHeaderButtons($view, $requestUri, $demand);
+        $this->registerDocHeaderButtons($view, $request, $demand);;
 
         $definitions = $this->surfeyDefinitionRepository->findByDemand($demand);
         $paginator = new DemandedArrayPaginator($definitions, $demand->getPage(), $demand->getLimit(), $this->surfeyDefinitionRepository->countAll());
@@ -91,16 +89,17 @@ readonly class ManagementController
         ])->renderResponse('Management/Overview');
     }
 
-    protected function registerDocHeaderButtons(ModuleTemplate $view, string $requestUri, SurfeyDefinitionDemand $demand): void
+    protected function registerDocHeaderButtons(ModuleTemplate $view, ServerRequestInterface $request, SurfeyDefinitionDemand $demand): void
     {
         $languageService = $this->getLanguageService();
         $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
 
+        $requestUri = $request->getAttribute('normalizedParams')->getRequestUri();
         $newRecordButton = $buttonBar->makeLinkButton()
             ->setHref((string)$this->uriBuilder->buildUriFromRoute(
                 'record_edit',
                 [
-                    'edit' => ['tx_surfey_definition' => ['new']],
+                    'edit' => ['tx_surfey_definition' => [$request->getQueryParams()['id'] ?? 0 => 'new']],
                     'returnUrl' => (string)$this->uriBuilder->buildUriFromRoute('web_surfey'),
                 ]
             ))
