@@ -8,7 +8,9 @@ use TYPO3\CMS\Core\Domain\RecordFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\View\ViewFactoryData;
 use TYPO3\CMS\Core\View\ViewFactoryInterface;
-use TYPO3\CMS\Extbase\Mvc\Web\RequestBuilder;
+use TYPO3\CMS\Extbase\Http\ForwardResponse;
+use TYPO3\CMS\Extbase\Mvc\ExtbaseRequestParameters;
+use TYPO3\CMS\Extbase\Mvc\Request;
 
 #[Autoconfigure(public: true)]
 final readonly class SurfeyController
@@ -41,10 +43,18 @@ final readonly class SurfeyController
         $definition = $record->get('tx_surfey_definition')->get('definition');
 
         $view = $this->viewFactory->create($viewFactoryData);
-        $requestBuilder = GeneralUtility::makeInstance(RequestBuilder::class);
-        $request = $requestBuilder->build($request);
 
-        $view->getRenderingContext()->setAttribute(ServerRequestInterface::class, $request);
+        $extbaseAttribute = new ExtbaseRequestParameters();
+        $extbaseAttribute->setPluginName('SurfeyPi');
+        $extbaseAttribute->setControllerExtensionName('Surfey');
+        $extbaseAttribute->setControllerAliasToClassNameMapping(['SurfeyController' => 'index']);
+        $extbaseAttribute->setControllerName('SurfeyController');
+        $extbaseAttribute->setControllerActionName('index');
+        $extbaseAttribute->setUploadedFiles([]);
+        $extbaseAttribute->setFormat('html');
+
+        $view->getRenderingContext()->setAttribute(ServerRequestInterface::class,
+            new Request($request->withAttribute('extbase', $extbaseAttribute)));
 
         $view->assign('record', $record);
         $view->assign('form', $definition);
