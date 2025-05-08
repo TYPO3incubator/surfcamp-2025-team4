@@ -30,6 +30,7 @@ final readonly class SurfeyController
             templateRootPaths: ['EXT:surfey/Resources/Private/Frontend/Templates/'],
             partialRootPaths: ['EXT:surfey/Resources/Private/Frontend/Partials'],
             layoutRootPaths: ['EXT:surfey/Resources/Private/Frontend/Layouts'],
+            templatePathAndFilename: 'EXT:surfey/Resources/Private/Frontend/Templates/Surfey.html',
             request: $request,
         );
 
@@ -45,6 +46,6 @@ final readonly class SurfeyController
         $view->assign('record', $record);
         $view->assign('form', $definition);
 
-        return $view->render('Surfey');
+        return $view->render();
     }
 }
