@@ -51,6 +51,10 @@
                 <source>If enabled, notifications / E-Mails  will be sent when new responses are received.</source>
                 <target>Wenn aktiviert werden Benachrichtigungen / E-Mails gesendet, wenn neue Antworten eingehen.</target>
             </trans-unit>
+            <trans-unit id="tx_surfey_definition.created">
+                <source>Created</source>
+                <target>Erstellt am</target>
+            </trans-unit>
             <trans-unit id="tx_surfey_submission.title">
                 <source>Surfey Submission</source>
                 <target>Surfey Abgabe</target>
