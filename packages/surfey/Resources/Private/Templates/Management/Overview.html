@@ -16,10 +16,6 @@
         }"
     />
     <h1><f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:heading_text"/></h1>
-    <f:variable
-        name="returnUrl"
-        value="{f:be.uri(route:'web_surfey')}"
-    />
     <f:if condition="{paginator.paginatedItems -> f:count()}">
         <f:then>
             <f:render section="filter" arguments="{_all}" />
@@ -34,7 +30,7 @@
                         <a class="btn btn-default" href="{f:be.uri(route:'web_surfey')}">
                             <f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:surfeydefinition_no_filter"/>
                         </a>
-                        <be:link.newRecord returnUrl="{returnUrl}" class="btn btn-primary" table="tx_surfey_definition">
+                        <be:link.newRecord returnUrl="{returnUrl}" class="btn btn-primary" table="tx_surfey_definition" pid="{pid}">
                             <f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:surfeydefinition_create"/>
                         </be:link.newRecord>
                     </f:be.infobox>
@@ -47,7 +43,7 @@
                 <f:else>
                     <f:be.infobox state="{f:constant(name: 'TYPO3\CMS\Fluid\ViewHelpers\Be\InfoboxViewHelper::STATE_INFO')}" title="{f:translate(key: 'LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:surfeydefinition_not_found.title')}">
                         <p><f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:surfeydefinition_not_found.message"/></p>
-                        <be:link.newRecord returnUrl="{returnUrl}" class="btn btn-primary" table="tx_surfey_definition">
+                        <be:link.newRecord returnUrl="{returnUrl}" class="btn btn-primary" table="tx_surfey_definition" pid="{pid}">
                             <f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:surfeydefinition_create"/>
                         </be:link.newRecord>
                     </f:be.infobox>
@@ -269,8 +265,7 @@
         >
             <core:icon identifier="actions-open" />
         </be:link.editRecord>
-
-        <f:if condition="{definitionRecord.hidden} == 1">
+        <f:if condition="{definition.hidden} == 1">
             <f:then>
                 <a
                     class="btn btn-default"
@@ -299,33 +294,15 @@
             data-button-close-text="{f:translate(key: 'LLL:EXT:backend/Resources/Private/Language/locallang_alt_doc.xlf:buttons.confirm.delete_record.no')}">
             <core:icon identifier="actions-delete" />
         </a>
-        <button type="button" class="btn btn-default" data-bs-toggle="modal" data-bs-target="#privateLink-{definition.uid}" title="{f:translate(key: 'LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:generate_private_link')}">
+        <button class="btn btn-default t3js-modal-trigger"
+            type="button"
+            title="{f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:delete')}"
+            data-severity="warning"
+            data-title="{f:translate(key: 'LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:generate_private_link')} - {definition.title}"
+            data-bs-content="{f:translate(key: 'LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:private_link_description')}"
+            data-button-close-text="{f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.close')}">
             <core:icon identifier="actions-link" />
         </button>
-
-        <div class="modal fade" id="privateLink-{definition.uid}" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">
-                            <f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:generate_private_link" /> - {definition.title}
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.close')}"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p><f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:private_link_description" /></p>
-                        <f:comment>
-                            <f:render section="privateLinkGenerator" arguments="{definition: definition}" />
-                        </f:comment>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">
-                            <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.close" />
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </f:section>
 </html>

@@ -51,6 +51,8 @@ readonly class ManagementController
             'paginator' => $paginator,
             'pagination' => $pagination,
             'definitions' => $definitions,
+            'returnUrl' => $requestUri,
+            'pid' => (int)($request->getQueryParams()['id'] ?? 0),
             'actions' => [
                 new Action(
                     'edit',
@@ -100,7 +102,7 @@ readonly class ManagementController
                 'record_edit',
                 [
                     'edit' => ['tx_surfey_definition' => [$request->getQueryParams()['id'] ?? 0 => 'new']],
-                    'returnUrl' => (string)$this->uriBuilder->buildUriFromRoute('web_surfey'),
+                    'returnUrl' => $requestUri,
                 ]
             ))
             ->setShowLabelText(true)
