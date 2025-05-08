@@ -19,6 +19,7 @@ namespace TYPO3Incubator\Surfey\Form;
 
 use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use TYPO3\CMS\Backend\Form\Element\AbstractFormElement;
+use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
 use TYPO3\CMS\Core\Utility\StringUtility;
 
@@ -49,6 +50,11 @@ final class SurfeyEditorElement extends AbstractFormElement
         ],
     ];
 
+    public function __construct(
+        private readonly UriBuilder $uriBuilder
+    ) {
+    }
+
     public function render(): array
     {
         $fieldName = $this->data['fieldName'];
@@ -68,11 +74,11 @@ final class SurfeyEditorElement extends AbstractFormElement
             $itemValue = '';
         }
 
+        $fieldInformationResult = $this->renderFieldInformation();
+        $fieldInformationHtml = $fieldInformationResult['html'];
+        $resultArray = $this->mergeChildReturnIntoExistingResult($resultArray, $fieldInformationResult, false);
 
         if ($readOnly) {
-            $fieldInformationResult = $this->renderFieldInformation();
-            $fieldInformationHtml = $fieldInformationResult['html'];
-            $resultArray = $this->mergeChildReturnIntoExistingResult($resultArray, $fieldInformationResult, false);
             $html = [];
             $html[] = $$renderedLabel;
             $html[] = '<div class="formengine-field-item t3js-formengine-field-item">';
@@ -91,15 +97,16 @@ final class SurfeyEditorElement extends AbstractFormElement
             return $resultArray;
         }
 
-        $html = [];
-        $html[] = '<button class="btn btn-default" type="button">';
-        $html[] =     htmlspecialchars($this->getLanguageService()->sL('LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:element.surfeyEditor.button.label'));;;
-        $html[] = '</button>';
-        $html[] = '<input type="hidden" name="' . htmlspecialchars($fieldName) . '" value="' . htmlspecialchars($itemValue) . '" id="' . htmlspecialchars($fieldId) . '">';
+        $formPersistenceIdentifier = 'tx_surfey_definition.' . $this->data['databaseRow']['uid'];
+        $url = $this->uriBuilder->buildUriFromRoute('web_FormFormbuilder', [
+            'controller' => 'FormEditor',
+            'action' => 'index',
+            'formPersistenceIdentifier' => $formPersistenceIdentifier,
+        ]);
 
         $resultArray['html'] =
-            '<typo3-formengine-element-surfey class="formengine-field-item t3js-formengine-field-item" recordFieldId="' . htmlspecialchars($fieldId) . '">
-                ' . implode(LF, $html) . '
+            '<typo3-formengine-element-surfey class="btn btn-default" modal-uri="' . $url .'">
+                ' . htmlspecialchars($this->getLanguageService()->sL('LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:element.surfeyEditor.button.label')) . '
             </typo3-formengine-element-surfey>';
 
         $resultArray['javaScriptModules'][] = JavaScriptModuleInstruction::create('@typo3incubator/surfey/surfey-element.js');

@@ -31,7 +31,7 @@ readonly class SurfeyDefinitionRepository
 {
 
     public function __construct(
-        private ConnectionPool          $connectionPool,
+        private ConnectionPool $connectionPool,
         private SurfeyDefinitionFactory $surfeyDefinitionFactory,
     ) {
     }
@@ -130,5 +130,23 @@ readonly class SurfeyDefinitionRepository
         }
         $queryBuilder = $queryBuilder->select('*')->from('tx_surfey_definition');
         return $queryBuilder;
+    }
+
+    public function findById(int $uid): ?array
+    {
+        $qb = $this->getPreparedQueryBuilder();
+        $qb->where($qb->expr()->eq('uid', $qb->createNamedParameter($uid, Connection::PARAM_INT)));
+
+        try {
+            return $qb->executeQuery()->fetchAssociative();
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
+
+    public function updateDefinition(int $uid, array $definition): void
+    {
+        $this->connectionPool->getConnectionForTable('tx_surfey_definition')
+            ->update('tx_surfey_definition', ['definition' => $definition], ['uid' => $uid]);
     }
 }
