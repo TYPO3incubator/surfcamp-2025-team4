@@ -48,3 +48,5 @@ ExtensionManagementUtility::addTCAcolumns(
         ],
     ]
 );
+
+$GLOBALS['TCA']['tt_content']['columns']['tx_surfey_definition']['displayCond'] = 'FIELD:CType:=:surfey';
