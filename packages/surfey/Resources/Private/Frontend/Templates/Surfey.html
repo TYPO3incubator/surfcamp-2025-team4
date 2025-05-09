@@ -1,12 +1,33 @@
 <div class="surfey">
+    <f:asset.css identifier="surfeyStyles">
+        .surfey form {
+            padding: 2rem 5rem;
+            margin: 0 3rem;
+        }
+
+        .surfey h2 {
+            margin-top: 0;
+        }
+
+        .surfey form h2 {
+            font-size: 2.5rem;
+        }
+
+        .surfey .form-check {
+            padding-left: 3rem;
+        }
+
+        .surfey .form-check-label {
+            font-size: 1rem;
+        }
+    </f:asset.css>
+
     <h2>{record.header}</h2>
     <f:if condition="{record.bodytext}">
         <div class="bodytext">
             <f:format.html>{record.bodytext}</f:format.html>
         </div>
     </f:if>
-
-    <h3>Surfey: {record.tx_surfey_definition.title}</h3>
 
     <formvh:render overrideConfiguration="{form}"/>
 </div>
