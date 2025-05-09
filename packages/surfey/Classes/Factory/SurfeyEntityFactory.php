@@ -26,6 +26,7 @@ use TYPO3\CMS\Core\Domain\RecordPropertyClosure;
 use TYPO3\CMS\Core\Schema\TcaSchemaFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3Incubator\Surfey\Domain\Model\SurfeyDefinition;
+use TYPO3Incubator\Surfey\Domain\Model\SurfeyParticipation;
 
 final class SurfeyEntityFactory
 {
@@ -41,29 +42,31 @@ final class SurfeyEntityFactory
     {
         switch ($event->getRawRecord()->getMainType()) {
             case 'tx_surfey_participation':
+                $event->setProperty('surfey', $this->transformEntityDefinition($event, SurfeyDefinition::class));;
             case 'tx_surfey_submission':
-                $event->setProperty('surfey', $this->transformSurfeyDefinition($event));
+                $event->setProperty('surfey', $this->transformEntityDefinition($event, SurfeyDefinition::class));;
+                $event->setProperty('participant', $this->transformEntityDefinition($event, SurfeyParticipation::class));;
                 break;
         }
     }
 
-    private function transformSurfeyDefinition(RecordCreationEvent $event): RecordPropertyClosure
+    private function transformEntityDefinition(RecordCreationEvent $event, string $entityClass): RecordPropertyClosure
     {
-        $schema = $this->tcaSchemaFactory->get($event->getRawRecord()->getMainType());
         $recordFactory = $this->recordFactory;
+        $schema = $this->tcaSchemaFactory->get($event->getRawRecord()->getMainType());
         $fieldInformation = $schema->getField('surfey');
         $rawRecord = $event->getRawRecord();
         $context = $event->getContext();
         $recordIdentityMap = GeneralUtility::makeInstance(RecordIdentityMap::class);
         return new RecordPropertyClosure(
-            function () use ($rawRecord, $fieldInformation, $context, $recordFactory, $recordIdentityMap): ?SurfeyDefinition {
+            function () use ($rawRecord, $fieldInformation, $context, $recordFactory, $recordIdentityMap, $entityClass): ?object {
                 $recordData = $this->relationResolver->resolve($rawRecord, $fieldInformation, $context)[0] ?? null;
                 if ($recordData === null) {
                     return null;
                 }
                 $dbTable = $recordData['table'];
                 $row = $recordData['row'];
-                return new SurfeyDefinition($recordFactory->createResolvedRecordFromDatabaseRow($dbTable, $row, $context, $recordIdentityMap));
+                return new $entityClass($recordFactory->createResolvedRecordFromDatabaseRow($dbTable, $row, $context, $recordIdentityMap));
             }
         );
     }

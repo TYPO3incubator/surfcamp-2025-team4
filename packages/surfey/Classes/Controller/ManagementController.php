@@ -28,8 +28,7 @@ readonly class ManagementController
         private SurfeyDefinitionRepository $surfeyDefinitionRepository,
         private UriBuilder $uriBuilder,
         private IconFactory $iconFactory,
-    )
-    {
+    ){
     }
 
     public function overviewAction(ServerRequestInterface $request): ResponseInterface

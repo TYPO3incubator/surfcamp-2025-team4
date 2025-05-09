@@ -26,7 +26,7 @@ return [
         '1' => [
             'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                surfey,hash,data,
+                surfey,hash,data,participant,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
                 --palette--;;language,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
@@ -60,5 +60,13 @@ return [
                 'readOnly' => true,
             ]
         ],
+        'participant' => [
+            'label' => 'LLL:EXT:surfey/Resources/Private/Language/locallang_tca.xlf:tx_surfey_submission.columns.participant.label',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_surfey_participation',
+            ]
+        ]
     ],
 ];
