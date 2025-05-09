@@ -25,6 +25,9 @@ return [
             'fe_group' => 'fe_group',
         ],
         'searchFields' => 'title',
+        'security' => [
+            'ignorePageTypeRestriction' => true,
+        ],
     ],
     'types' => [
         '1' => [
