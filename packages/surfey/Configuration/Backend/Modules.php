@@ -21,6 +21,9 @@ return [
             '_default' => [
                 'target' => ManagementController::class . '::overviewAction',
             ],
+            'results' => [
+                'target' => ManagementController::class . '::resultsAction',
+            ],
         ],
     ],
 ];

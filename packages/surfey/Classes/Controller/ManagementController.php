@@ -18,6 +18,7 @@ use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3Incubator\Surfey\Domain\Model\SurfeyDefinitionDemand;
 use TYPO3Incubator\Surfey\Domain\Repository\SurfeyDefinitionRepository;
+use TYPO3Incubator\Surfey\Domain\Repository\SurfeySubmissionRepository;
 use TYPO3Incubator\Surfey\Pagination\DemandedArrayPaginator;
 
 #[AsController]
@@ -26,6 +27,7 @@ readonly class ManagementController
     public function __construct(
         private ModuleTemplateFactory $moduleTemplateFactory,
         private SurfeyDefinitionRepository $surfeyDefinitionRepository,
+        private SurfeySubmissionRepository $surfeySubmissionRepository,
         private UriBuilder $uriBuilder,
         private IconFactory $iconFactory,
     ){
@@ -129,5 +131,41 @@ readonly class ManagementController
     private function getLanguageService(): LanguageService
     {
         return $GLOBALS['LANG'];
+    }
+
+    public function resultsAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $view = $this->moduleTemplateFactory->create($request);
+        $view->setTitle($this->getLanguageService()->sL('LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:results.title'));
+
+        $surfeyId = (int)($request->getQueryParams()['id'] ?? 0);
+
+        if ($surfeyId <= 0) {
+            return $view->assign('error', 'no_surfey_id')
+                ->renderResponse('Management/Error');
+        }
+
+
+        $surfeyDefinition = $this->surfeyDefinitionRepository->findAll($surfeyId);
+
+        if (!$surfeyDefinition) {
+            return $view->assign('error', 'surfey_not_found')
+                ->renderResponse('Management/Error');
+        }
+
+        $submissions = $this->surfeySubmissionRepository->findAll();
+
+//        $summaryData = $this->calculateSummaryData($surfeyDefinition, $submissions);
+//        $chartData = $this->prepareChartData($surfeyDefinition, $submissions);
+
+        $requestUri = $request->getAttribute('normalizedParams')->getRequestUri();
+
+        return $view->assignMultiple([
+            'surfey' => $surfeyDefinition,
+            'submissions' => $submissions,
+//            'summaryData' => $summaryData,
+//            'chartData' => $chartData,
+            'returnUrl' => $requestUri
+        ])->renderResponse('Management/Results');
     }
 }

@@ -1,0 +1,213 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Module"/>
+
+<f:section name="Content">
+    <f:be.pageRenderer includeJavaScriptModules="{0: '@typo3/backend/context-menu.js'}"/>
+
+    <!-- FC Bigfoot sample data (English) -->
+    <f:variable name="surfey" value="{title: 'FC Bigfoot Fan Survey', uid: 99}" />
+
+    <f:variable name="summaryData" value="{
+        totalSubmissions: 68,
+        completionRate: 93,
+        averageTime: 148,
+        questionData: {
+            q1: {
+                question: 'What do you like most about FC Bigfoot?',
+                type: 'checkbox',
+                answers: {
+                    '1': {label: 'The Team', count: 44, percentage: 64.7},
+                    '2': {label: 'Stadium Atmosphere', count: 53, percentage: 77.9},
+                    '3': {label: 'The Coach', count: 21, percentage: 30.9},
+                    '4': {label: 'Mascot', count: 37, percentage: 54.4}
+                }
+            },
+            q2: {
+                question: 'Who is your favorite player?',
+                type: 'text',
+                answers: {
+                    texts: {
+                        0: 'Marcus Johnson',
+                        1: 'Sofia Hernandez',
+                        2: 'Liam Patel',
+                        3: 'Our goalkeeper Weber!',
+                        4: 'Sofia Hernandez',
+                        5: 'The mascot!'
+                    }
+                }
+            },
+            q3: {
+                question: 'What should be improved?',
+                type: 'textarea',
+                answers: {
+                    texts: {
+                        0: 'More vegetarian food options in the stadium.',
+                        1: 'Better parking facilities!',
+                        2: 'Make merchandise more affordable.',
+                        3: 'More activities for children.'
+                    }
+                }
+            },
+            q4: {
+                question: 'Would you buy Bigfoot merchandise?',
+                type: 'radio',
+                answers: {
+                    '1': {label: 'Yes, absolutely!', count: 41, percentage: 60.3},
+                    '2': {label: 'Maybe, depends on the design', count: 25, percentage: 36.8},
+                    '3': {label: 'No, thank you', count: 2, percentage: 2.9}
+                }
+            }
+        }
+    }" />
+
+    <h1>Results: {surfey.title}</h1>
+
+    <div class="row">
+        <div class="col-12">
+            <f:be.infobox state="info" title="Summary">
+                <div class="row">
+                    <div class="col-4 mb-2">
+                        <div class="card">
+                            <div class="card-body p-2 text-center">
+                                <h6 class="card-title">Submissions</h6>
+                                <p class="card-text h4">{summaryData.totalSubmissions}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                        <div class="card">
+                            <div class="card-body p-2 text-center">
+                                <h6 class="card-title">Completion Rate</h6>
+                                <p class="card-text h4">{summaryData.completionRate}%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                        <div class="card">
+                            <div class="card-body p-2 text-center">
+                                <h6 class="card-title">Ø Time</h6>
+                                <p class="card-text h4">
+                                    <f:format.date format="i:s">{summaryData.averageTime}</f:format.date> min
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </f:be.infobox>
+        </div>
+    </div>
+
+    <div class="panel panel-default mt-3">
+        <div class="panel-heading">
+            <h3 class="panel-title">Questions & Answers</h3>
+        </div>
+        <div class="panel-body">
+            <f:for each="{summaryData.questionData}" as="questionData" key="questionId">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5 class="mb-0">{questionData.question}</h5>
+                    </div>
+                    <div class="card-body">
+                        <f:if condition="{questionData.type} == 'text' || {questionData.type} == 'textarea'">
+                            <f:then>
+                                <div class="list-group">
+                                    <f:for each="{questionData.answers.texts}" as="textResponse">
+                                        <div class="list-group-item small">{textResponse}</div>
+                                    </f:for>
+                                </div>
+                            </f:then>
+                            <f:else>
+                                <f:if condition="{questionId} == 'q1' || {questionId} == 'q4'">
+                                    <f:then>
+                                        <div class="row">
+                                            <div class="col-12 pt-2 pt-md-0">
+                                                <table class="table table-sm table-striped w-100">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Answer</th>
+                                                        <th class="text-end">Count</th>
+                                                        <th class="text-end">%</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <f:for each="{questionData.answers}" as="answerData">
+                                                        <tr>
+                                                            <td>{answerData.label}</td>
+                                                            <td class="text-end">{answerData.count}</td>
+                                                            <td class="text-end">{answerData.percentage}</td>
+                                                        </tr>
+                                                    </f:for>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </f:then>
+                                    <f:else>
+                                        <table class="table table-sm table-striped w-100">
+                                            <thead>
+                                            <tr>
+                                                <th>Answer</th>
+                                                <th class="text-end">Count</th>
+                                                <th class="text-end">%</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <f:for each="{questionData.answers}" as="answerData">
+                                                <tr>
+                                                    <td>{answerData.label}</td>
+                                                    <td class="text-end">{answerData.count}</td>
+                                                    <td class="text-end">{answerData.percentage}</td>
+                                                </tr>
+                                            </f:for>
+                                            </tbody>
+                                        </table>
+                                    </f:else>
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bar chart for q1
+            var ctx1 = document.getElementById('chart-q1');
+            if(ctx1){
+                new Chart(ctx1, {
+                    type: 'bar',
+                    data: {
+                        labels: ['The Team', 'Stadium Atmosphere', 'The Coach', 'Mascot Biggy'],
+                        datasets: [{
+                            data: [44, 53, 21, 37],
+                            backgroundColor: ['#0074D9','#2ECC40','#FFDC00','#FF4136']
+                        }]
+                    },
+                    options: {responsive:true, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}}}
+                });
+            }
+            // Pie chart for q4
+            var ctx2 = document.getElementById('chart-q4');
+            if(ctx2){
+                new Chart(ctx2, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Yes, absolutely!','Maybe, depends on the design','No, thank you'],
+                        datasets: [{
+                            data: [41,25,2],
+                            backgroundColor: ['#2ECC40','#FFDC00','#FF4136']
+                        }]
+                    },
+                    options: {responsive:true, plugins:{legend:{position:'bottom'}}}
+                });
+            }
+        });
+    </script>
+</f:section>
+</html>

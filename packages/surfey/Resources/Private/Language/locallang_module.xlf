@@ -133,6 +133,54 @@
                 <source>Create new surfey</source>
             </trans-unit>
 
+            <trans-unit id="results.title">
+                <source>Survey Results</source>
+                <target>Umfrageergebnisse</target>
+            </trans-unit>
+            <trans-unit id="results.summary">
+                <source>Results Summary</source>
+                <target>Ergebnisübersicht</target>
+            </trans-unit>
+            <trans-unit id="results.total_submissions">
+                <source>Total Submissions</source>
+                <target>Gesamteinreichungen</target>
+            </trans-unit>
+            <trans-unit id="results.completion_rate">
+                <source>Completion Rate</source>
+                <target>Abschlussrate</target>
+            </trans-unit>
+            <trans-unit id="results.average_time">
+                <source>Average Time</source>
+                <target>Durchschnittliche Zeit</target>
+            </trans-unit>
+            <trans-unit id="results.question_results">
+                <source>Question Results</source>
+                <target>Fragenergebnisse</target>
+            </trans-unit>
+            <trans-unit id="results.text_responses">
+                <source>Text Responses</source>
+                <target>Textantworten</target>
+            </trans-unit>
+            <trans-unit id="results.chart">
+                <source>Chart</source>
+                <target>Diagramm</target>
+            </trans-unit>
+            <trans-unit id="results.distribution">
+                <source>Distribution</source>
+                <target>Verteilung</target>
+            </trans-unit>
+            <trans-unit id="results.answer">
+                <source>Answer</source>
+                <target>Antwort</target>
+            </trans-unit>
+            <trans-unit id="results.count">
+                <source>Count</source>
+                <target>Anzahl</target>
+            </trans-unit>
+            <trans-unit id="results.percentage">
+                <source>Percentage</source>
+                <target>Prozentsatz</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

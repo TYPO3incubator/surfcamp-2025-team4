@@ -323,6 +323,11 @@
             data-button-close-text="{f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.close')}">
             <core:icon identifier="actions-link" />
         </button>
+
+        <a href="{f:be.uri(route:'web_surfey_results', parameters:{id: definition.uid})}" class="btn btn-info"
+           title="{f:translate(key: 'LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:results.title')}">
+            <core:icon identifier="actions-eye" /> <f:translate key="LLL:EXT:surfey/Resources/Private/Language/locallang_module.xlf:results.view" />
+        </a>
     </div>
 </f:section>
 </html>
